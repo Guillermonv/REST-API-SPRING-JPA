@@ -7,6 +7,7 @@ select 	sum(generated_electricity) as DailySum,
         reading_at
  from hourly_electricity
  where panel_id = id
+  and reading_at < now()-1
  group by date(reading_at);
 
 END
